@@ -1,0 +1,10 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+# NOTE: backend/.env is intentionally NOT ignored. It holds no secrets — every
+# model runs locally — and it records the exact model configuration used to
+# produce the results, which the write-up needs to be reproducible.
+.env.local
+*.egg-info/

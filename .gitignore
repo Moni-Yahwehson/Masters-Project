@@ -1,0 +1,38 @@
+# Python -------------------------------------------------------------------
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# Node ---------------------------------------------------------------------
+node_modules/
+dist/
+dist-ssr/
+*.local
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Local model server -------------------------------------------------------
+# `make serve-ollama` writes its log here.
+.ollama/
+
+# OS / editors -------------------------------------------------------------
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Deliberately NOT ignored -------------------------------------------------
+# backend/.env holds no secrets — every model runs locally — and it records the
+# exact model configuration behind the results, which the write-up needs.
+#
+# "vision/cattle_lsd_detector.keras" (11 MB) and visual_index.npz
+# (4.6 MB) are committed on purpose: without them the application cannot run,
+# and neither can be regenerated here because the training dataset is not part
+# of this repository.

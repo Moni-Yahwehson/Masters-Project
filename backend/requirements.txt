@@ -1,0 +1,31 @@
+# --- API ------------------------------------------------------------------
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9       # multipart/form-data image uploads
+pydantic>=2.7,<3.0
+
+# --- Local LLM ------------------------------------------------------------
+# Inference is served by Ollama on 127.0.0.1:11434 — install it separately
+# (`make install-ollama`) and pull the models with `make models`.
+# No hosted model API, no API key, no network egress: httpx only ever talks to
+# localhost.
+httpx>=0.27
+
+# --- Vision model ---------------------------------------------------------
+# Keras 3 loads the saved cattle_lsd_detector.keras; TensorFlow is its backend.
+# One requirement for every platform: since 2.16 the `tensorflow` wheel covers
+# macOS arm64 too, so the old `tensorflow-macos` split is obsolete (that package
+# is unmaintained and stuck at 2.16 — pulling it in on Apple Silicon would
+# silently downgrade the backend).
+tensorflow>=2.16,<2.20
+keras>=3.0
+pillow>=10.3                   # image decoding and resizing
+numpy>=1.26
+
+# --- Retrieval ------------------------------------------------------------
+# Local TF-IDF retrieval. Optional: the store falls back to a pure-Python
+# TF-IDF implementation if this is absent.
+scikit-learn>=1.4
+
+# --- Tests ----------------------------------------------------------------
+pytest>=8.0
